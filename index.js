@@ -12,5 +12,19 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
-}
+  return tutorials.map((line) => {
+    const tokens = line.split(" ");
+
+    // Using a shorter, more readable arrow function for mapping over tokens
+    const capitalizedTokens = tokens.map(
+      (token) => token.charAt(0).toUpperCase() + token.slice(1)
+    );
+
+    // Joining the capitalized tokens with a space
+    const response = capitalizedTokens.join(" ");
+    return response;
+  });
+};
+
+// Call the function and log the result
+console.log(titleCased());
